@@ -14,4 +14,4 @@ jobs:
         run: |
             VER="$(curl -sLf 'https://golang.org/VERSION?m=text')"
             
-            echo ${VER#go} >> $GITHUB_ENV
+            echo ${VER#go} 
