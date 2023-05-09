@@ -1,0 +1,17 @@
+on:
+  schedule:
+    - cron:  '0 18 * * *'
+  workflow_dispatch:
+
+name: buildx
+jobs:
+  buildx:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: Commit ID
+        run: |
+            VER="$(curl -sLf 'https://golang.org/VERSION?m=text')"
+            
+            echo ${VER#go} >> $GITHUB_ENV
